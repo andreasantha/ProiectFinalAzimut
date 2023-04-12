@@ -1,6 +1,6 @@
-package stepsDefinition.bazele;
+package StepsDefinition;
 
-public class Lectia25si26 {
+class Lectia25si26 {
 
     //----Functii statice----------------------------------------------------------------------
     // cele care nu returneaza nimic
