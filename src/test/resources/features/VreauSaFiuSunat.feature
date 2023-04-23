@@ -8,7 +8,7 @@ Feature: Button Vreau sa fiu sunat
   Scenario: Testing Vreau sa fiu sunat button with correct phone Number
     And Introduce "0745678678"
     And Check GDPR chekbox
-    And Click on Vreau abonament nou
+    And Click on "Vreau abonament nou"
     Then Display confirmation and close
 
   #Testing Vreau sa fiu sunat with incorrect phonenumber (out of 10 numbers but doesn't start with 0)
@@ -16,7 +16,7 @@ Feature: Button Vreau sa fiu sunat
   Scenario: Testing Vreau sa fiu sunat Button with incorrect Phonenumber
     Then Introduce "4745678678"
     And Check GDPR chekbox
-    And Click on Vreau abonament nou
+    And Click on "Vreau abonament nou"
     Then Display confirmation and close
     
    #Testing Vreau sa fiu sunat Button with incorrect Phonenumber (less than 10 numbers )
@@ -25,12 +25,14 @@ Feature: Button Vreau sa fiu sunat
     Then Introduce "74565065"
     And Display error message
     And Check GDPR chekbox
-    And Click on Vreau abonament nou
+    And Click on "Vreau abonament nou"
 
   # Testing Vreau sa fiu sunat Button with incorrect Phonenumber (combination of letters and numbers )
 
   Scenario: Testin Vreau sa fiu sunat Button with incorrect Phonenumber
     Then Introduce "o745650650"
+    And Verify message is "Numarul de telefon introdus nu este corect"
     And Display error message
     And Check GDPR chekbox
-    And Click on Vreau abonament nou
+    And Click on "Vreau abonament nou"
+    Then Display confirmation and close

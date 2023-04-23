@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class InitializareDriver {
-
+public class WebDriverInitialize {
     private static WebDriver driver;
     public static WebDriver getDriver() {
         if (driver != null) {
@@ -17,7 +16,7 @@ public class InitializareDriver {
                     "Please call WebDriverFactory.startBrowser() before use this method");
         }
     }
-    public static void setup (String pageUrl) throws InterruptedException {
+    public static void startBrowser(String pageUrl) {
         System.setProperty("webdriver.chrome.driver",
                 System.getProperty("user.dir") + "/src/main/java/driver/chromedriver.exe");
 
@@ -38,5 +37,4 @@ public class InitializareDriver {
             driver = null;
         }
     }
-
 }
