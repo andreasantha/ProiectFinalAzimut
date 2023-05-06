@@ -3,6 +3,7 @@ package StepsDefinition;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -47,26 +48,13 @@ public class ProiectFinal {
         WebDriverInitialize.getDriver().findElement(By.id("submitOffer")).click();
         sleep(3000);
     }
-    @And("Verify message is {string}")
-   public void verifyMessageIs(String message) throws InterruptedException {
-       if (message.equalsIgnoreCase(WebDriverInitialize.getDriver().findElement(By.xpath("//p[@class='phoneError text-danger mb-0']")).getText())){
-          sleep(3000);
-      } else System.out.println("S-a gasit mesajul" + message);
-   }
-
-
-    @And("Display error message")
-    public void displayErrorMessage() throws InterruptedException {
-        WebDriverInitialize.getDriver().findElement(By.xpath("//p[@class='phoneError text-danger mb-0']")).getText();
-        sleep(3000);
-    }
     @Then("Display confirmation and close")
     public void displayConfirmationAndClose() throws InterruptedException {
         WebDriverInitialize.getDriver().findElement(By.xpath("//span[@data-track-action='Inchide 2']")).click();
         sleep(3000);
     }
-    //Link Catre Social Media
 
+    //Link Catre Social Media
     @Then("Click on {string} Icon")
     public void clickOnIcon(String nameIcon) throws InterruptedException{
         switch(nameIcon) {
@@ -144,7 +132,6 @@ public class ProiectFinal {
     public void click_on_my_account_button() throws InterruptedException{
         WebDriverInitialize.getDriver().findElement(By.xpath("//*[@id='My_Account']")).click();
         sleep(3000);
-
     }
     @Then("Enter {string} adress")
     public void enter_email_adress(String emailAdress) throws InterruptedException{
@@ -160,9 +147,24 @@ public class ProiectFinal {
     public void clickTheButton(String button) throws InterruptedException {
         WebDriverInitialize.getDriver().findElement(By.xpath("//button[@id='loginBtn']")).click();
         sleep(3000);
-        WebDriverInitialize.getDriver().switchTo().alert().accept();
+    }
+    @And("Verify message is {string}")
+    public void verifyMessageIs(String confirmationMessage) throws InterruptedException {
+        Assert.assertEquals(WebDriverInitialize.getDriver().findElement(By.xpath("//*[@class='phoneError text-danger mb-0']")).getText(), confirmationMessage);
+    sleep(3000);
     }
 
+    @Then("Verify message {string}")
+    public void verifyMessage(String errorMessage) throws InterruptedException {
+        Assert.assertEquals(WebDriverInitialize.getDriver().findElement(By.xpath("//*[@class='field-validation-error error-message']")).getText(),errorMessage);
+        sleep(3000);
+    }
+
+    @Then("Verify the message {string}")
+    public void verifyTheMessage(String confMessage) throws InterruptedException{
+        Assert.assertEquals(WebDriverInitialize.getDriver().findElement(By.xpath("//*[@class='requiredError passwordError']")).getText(),confMessage);
+        sleep(3000);
+    }
 }
 
 

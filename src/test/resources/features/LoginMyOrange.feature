@@ -10,6 +10,7 @@ Feature: Login My Orange Account
     And Enter "santha708@gmail.com" adress
     Then Enter "Andrea@123"
     Then Click the "Login" button
+    And Close Opened Tab
 
 #Testing My account with correct user and incorrect password
 
@@ -18,6 +19,8 @@ Feature: Login My Orange Account
     And Enter "santha708@gmail.com" adress
     Then Enter "abracadabra"
     Then Click the "Login" button
+    Then Verify message "Utilizator sau parolă greşită"
+    And Close Opened Tab
 
 #Testing My account with with user and with missing password
 
@@ -25,3 +28,5 @@ Feature: Login My Orange Account
     Then Click on My account button
     And Enter "santha708@gmail.com " adress
     Then Click the "Login" button
+    Then Verify the message "Câmp obligatoriu"
+    And Close Opened Tab

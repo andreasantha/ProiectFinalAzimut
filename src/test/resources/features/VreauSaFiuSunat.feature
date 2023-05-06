@@ -21,18 +21,16 @@ Feature: Button Vreau sa fiu sunat
     
    #Testing Vreau sa fiu sunat Button with incorrect Phonenumber (less than 10 numbers )
   
-  Scenario: Testing Vreau sa fiu sunat Button with incorrect Phonenumber
+  Scenario: Testing Vreau sa fiu sunat button with incorrect Phonenumber
     Then Introduce "74565065"
-    And Display error message
+    And Verify message is "Numărul de telefon introdus nu este corect"
     And Check GDPR chekbox
-    And Click on "Vreau abonament nou"
+
 
   # Testing Vreau sa fiu sunat Button with incorrect Phonenumber (combination of letters and numbers )
 
   Scenario: Testin Vreau sa fiu sunat Button with incorrect Phonenumber
     Then Introduce "o745650650"
-    And Verify message is "Numarul de telefon introdus nu este corect"
-    And Display error message
+    And Verify message is "Numărul de telefon introdus nu este corect"
     And Check GDPR chekbox
-    And Click on "Vreau abonament nou"
-    Then Display confirmation and close
+
